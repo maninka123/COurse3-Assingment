@@ -1,6 +1,12 @@
 library(dplyr)
-library(data.table) 
+library(data.table)
 
+if(!file.exists("./Course")) {dir.create("./Cousre")}
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileUrl, destfile = "./Cousre/humanact.zip", method = "curl")
+unzip("./Course/humanact.zip", exdir = "./Course")
+
+setwd("./Course")
 #importing
 Xtestdata=read.table("test/X_test.txt")
 Xtraindata=read.table("train/X_train.txt")
